@@ -1,0 +1,11 @@
+<div>
+    <mat-grid-list cols="3" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let movie of moviesList">
+            <div class="gridTile">
+                <div><img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}"></div>
+                <div>{{ movie.title }}</div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
