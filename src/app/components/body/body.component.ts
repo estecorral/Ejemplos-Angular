@@ -9,7 +9,6 @@ import movies from 'src/assets/movies.json';
 export class BodyComponent implements OnInit {
   moviesList: any = movies;
   constructor() {
-    console.log(this.moviesList);
   }
 
   ngOnInit(): void {}
