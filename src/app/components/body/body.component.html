@@ -3,7 +3,10 @@
         <mat-grid-tile *ngFor="let movie of moviesList">
             <div class="gridTile">
                 <div><img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}"></div>
-                <div [ngStyle]="{'background-color': movie.adult === true ? 'red' : 'green'}">
+                <div [ngClass]="{
+                    'fondo-adultos': movie.adult === true,
+                    'fondo-todosPublicos': movie.adult === false
+                }">
                     {{ movie.title }}
                 </div>
             </div>
