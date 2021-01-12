@@ -1,0 +1,13 @@
+.gridTile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fondo-adultos {
+    background-color: red;
+}
+
+.fondo-todosPublicos {
+    background-color: green;
+}

@@ -1,0 +1,18 @@
+<div>
+    <mat-grid-list [cols]="columnas" rowHeight="1:1" (window:resize)="onResize($event)">
+        <mat-grid-tile *ngFor="let movie of moviesList">
+            <div class="gridTile">
+                <div><img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}"></div>
+                <div [ngClass]="{
+                    'fondo-adultos': movie.adult === true,
+                    'fondo-todosPublicos': movie.adult === false
+                }">
+                    {{ movie.title }}
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div *ngIf="moviesList.length < 1">
+        No hay peliculas
+    </div>
+</div>

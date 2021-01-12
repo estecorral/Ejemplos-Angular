@@ -1,18 +1,17 @@
-<div>
-    <mat-grid-list [cols]="columnas" rowHeight="1:1" (window:resize)="onResize($event)">
-        <mat-grid-tile *ngFor="let movie of moviesList">
-            <div class="gridTile">
-                <div><img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}"></div>
-                <div [ngClass]="{
-                    'fondo-adultos': movie.adult === true,
-                    'fondo-todosPublicos': movie.adult === false
-                }">
-                    {{ movie.title }}
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-    <div *ngIf="moviesList.length < 1">
-        No hay peliculas
+<div class="general">
+    <div >
+        <img src="../../../assets/images/cabecera.jpg">
+    </div>
+    <h2>Popular en Peliculas</h2>
+    <div class="peliculas">
+        <div *ngFor="let movie of moviesList" class="pelicula">
+            <img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}">
+        </div>
+    </div>
+    <h2>Popular en Series</h2>
+    <div class="series">
+        <div *ngFor="let serie of seriesList" class="serie">
+            <img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{serie.poster_path}}">
+        </div>
     </div>
 </div>

@@ -1,13 +1,25 @@
-.gridTile {
+.general {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.fondo-adultos {
-    background-color: red;
+.peliculas {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
 
-.fondo-todosPublicos {
-    background-color: green;
+.series {
+     display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.pelicula {
+    margin: 5px;
+}
+
+.serie {
+    margin: 5px;
 }

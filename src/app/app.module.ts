@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './modules/material/material.module';
 import { BodyComponent } from './components/body/body.component';
 import { HomeComponent } from './components/home/home.component';
+import { SeriesComponent } from './components/series/series.component';
+import { PeliculasComponent } from './components/peliculas/peliculas.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { HomeComponent } from './components/home/home.component';
     NavbarComponent,
     BodyComponent,
     HomeComponent,
+    SeriesComponent,
+    PeliculasComponent,
   ],
   imports: [
     BrowserModule,
