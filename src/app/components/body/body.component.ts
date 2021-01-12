@@ -26,6 +26,5 @@ export class BodyComponent implements OnInit {
     } else {
       this.columnas = 4;
     }
-    console.log(e.target.innerWidth);
   }
 }
