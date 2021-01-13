@@ -5,13 +5,13 @@
     <h2>Popular en Peliculas</h2>
     <div class="peliculas">
         <div *ngFor="let movie of moviesList" class="pelicula">
-            <img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}">
+            <button mat-button [routerLink]="['/pelicula', movie.id]"><img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}"></button>
         </div>
     </div>
     <h2>Popular en Series</h2>
     <div class="series">
         <div *ngFor="let serie of seriesList" class="serie">
-            <img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{serie.poster_path}}">
+            <button mat-button routerLink="/serie" (click)="sendParams(serie.id, serie.name)"><img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{serie.poster_path}}"></button>
         </div>
     </div>
 </div>

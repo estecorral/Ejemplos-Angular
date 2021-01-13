@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
 import movies from 'src/assets/movies.json';
 import series from 'src/assets/series.json';
 
@@ -11,22 +12,14 @@ export class BodyComponent implements OnInit {
   moviesList: any = movies.slice(0, 5);
   seriesList: any = series.slice(0, 5);
   columnas: number = 2;
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.columnas = (window.innerWidth <= 1400) ? 3 : 4;
   }
 
-  onResize(e : any) {
-    if (e.target.innerWidth <= 1400 && e.target.innerWidth > 1100) {
-      this.columnas = 3;
-    } else if (e.target.innerWidth <= 1100 && e.target.innerWidth > 750) {
-      this.columnas = 2;
-    } else if (e.target.innerWidth <=750) {
-      this.columnas = 1;
-    } else {
-      this.columnas = 4;
-    }
+  sendParams(id: string, name: string) {
+    this.router.navigate(['/serie'], { queryParams: { 'id': id, 'name': name}});
   }
 }

@@ -17,9 +17,9 @@
     flex-direction: row;
 }
 .pelicula {
-    margin: 5px;
+    margin-bottom: 5px;
 }
 
 .serie {
-    margin: 5px;
+    margin-bottom: 10px;
 }

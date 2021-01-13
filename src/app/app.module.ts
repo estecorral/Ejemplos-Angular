@@ -10,6 +10,8 @@ import { BodyComponent } from './components/body/body.component';
 import { HomeComponent } from './components/home/home.component';
 import { SeriesComponent } from './components/series/series.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
+import { PeliculaComponent } from './components/pelicula/pelicula.component';
+import { SerieComponent } from './components/serie/serie.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
     HomeComponent,
     SeriesComponent,
     PeliculasComponent,
+    PeliculaComponent,
+    SerieComponent,
   ],
   imports: [
     BrowserModule,
