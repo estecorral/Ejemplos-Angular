@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import movies from 'src/assets/movies.json';
 import series from 'src/assets/series.json';
+import { PeliculasServiceService } from "../../services/peliculas-service.service";
 
 @Component({
   selector: 'app-body',
@@ -9,10 +10,10 @@ import series from 'src/assets/series.json';
   styleUrls: ['./body.component.css'],
 })
 export class BodyComponent implements OnInit {
-  moviesList: any = movies.slice(0, 5);
+  moviesList: any = [];
   seriesList: any = series.slice(0, 5);
   columnas: number = 2;
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private peliculasServive: PeliculasServiceService) {
   }
 
   ngOnInit(): void {
@@ -21,5 +22,10 @@ export class BodyComponent implements OnInit {
 
   sendParams(id: string, name: string) {
     this.router.navigate(['/serie'], { queryParams: { 'id': id, 'name': name}});
+  }
+
+  getMovies() {
+    console.log(this.peliculasServive.getFiveMovies())
+    return this.peliculasServive.getFiveMovies();
   }
 }

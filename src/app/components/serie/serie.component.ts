@@ -15,10 +15,8 @@ export class SerieComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
-      console.log(params);
       this.serie = params.name;
       this.id = params.id;
     });
-    console.log(this.serie, this.id);
   }
 }

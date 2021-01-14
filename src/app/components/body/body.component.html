@@ -4,7 +4,7 @@
     </div>
     <h2>Popular en Peliculas</h2>
     <div class="peliculas">
-        <div *ngFor="let movie of moviesList" class="pelicula">
+        <div *ngFor="let movie of getMovies()" class="pelicula">
             <button mat-button [routerLink]="['/pelicula', movie.id]"><img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}"></button>
         </div>
     </div>

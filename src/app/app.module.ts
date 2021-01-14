@@ -12,6 +12,7 @@ import { SeriesComponent } from './components/series/series.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { SerieComponent } from './components/serie/serie.component';
+import { PeliculasServiceService } from "./services/peliculas-service.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { SerieComponent } from './components/serie/serie.component';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [ PeliculasServiceService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
