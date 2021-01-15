@@ -9,9 +9,12 @@ import { SeriesService } from "../../services/series.service";
   styleUrls: ['./body.component.css'],
 })
 export class BodyComponent implements OnInit {
-
-  constructor(private router: Router, private peliculasServive: PeliculasServiceService,
+  popular: any = [];
+  constructor(private router: Router, private peliculasService: PeliculasServiceService,
     private seriesService: SeriesService) {
+      this.peliculasService.getPopular().subscribe((data: any) => {
+        this.popular = data.results.slice(0, 5);
+      });
   }
 
   ngOnInit(): void {
@@ -22,7 +25,7 @@ export class BodyComponent implements OnInit {
   }
 
   getMovies() {
-    return this.peliculasServive.getFiveMovies();
+    return this.popular;
   }
 
   getSeries() {

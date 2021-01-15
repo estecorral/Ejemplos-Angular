@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeliculasServiceService } from '../../services/peliculas-service.service';
 import movies from 'src/assets/movies.json';
 
 @Component({
@@ -7,9 +8,14 @@ import movies from 'src/assets/movies.json';
   styleUrls: ['./peliculas.component.css'],
 })
 export class PeliculasComponent implements OnInit {
-  moviesList: any = movies;
+  moviesList: any = [];
   columnas: number = 2;
-  constructor() {}
+  constructor(private peliculasService: PeliculasServiceService) {
+    this.peliculasService.getNewMovies().subscribe((data: any) => {
+      this.moviesList = data.results;
+      console.log(data.results);
+    });
+  }
 
   ngOnInit(): void {
     this.columnas = window.innerWidth <= 1400 ? 3 : 4;
