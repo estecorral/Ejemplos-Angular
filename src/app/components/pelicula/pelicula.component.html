@@ -1,1 +1,43 @@
-<p>pelicula works!</p>
+<div class="body">
+    <div class="info" [ngStyle]="{'background-image': 'url('+backgroundImage+')', 'backgroud-size': 'cover'}">
+        <div class="imagen">
+            <img class="image" src="{{ poster }}">
+        </div>
+        <div class="informacion">
+            <div class="titulo">
+                <h1>{{ pelicula.title }} ({{ pelicula.release_date | date: "YYYY"}})</h1>
+                <p> {{ pelicula.release_date | date: "dd/MM/YYYY"}} · {{ pelicula.runtime }} min
+                    <mat-chip-list>
+                        <mat-chip color="accent" *ngFor="let genero of pelicula.genres" selected>
+                            {{genero.name}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </p>
+            </div>
+            <div class="descripcion">
+                <p> {{ pelicula.overview}}</p>
+            </div>
+            <div class="puntuacion">
+                Puntuación del público:
+                <mat-chip color="primary" selected>
+                         {{pelicula.vote_average}}
+                </mat-chip>
+            </div>
+        </div>
+    </div>
+    <div class="creditos">
+        <h1>Reparto principal</h1>
+        <div class="cards">
+            <mat-card class="card" *ngFor="let artist of creditos">
+                <img mat-card-image *ngIf="artist.profile_path !== null" src="https://www.themoviedb.org/t/p/w138_and_h175_face{{ artist.profile_path }}">
+                <img mat-card-image *ngIf="artist.profile_path === null" src="../../../assets/images/personajeSin.png">
+                <mat-card-content class="cardContent">
+                    <h3>
+                        <b>{{ artist.name }}</b>
+                    </h3>
+                    <p> {{ artist.character }} </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

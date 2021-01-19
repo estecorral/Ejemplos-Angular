@@ -1,5 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from "@angular/router";
+import { PeliculasServiceService } from "../../services/peliculas-service.service";
 @Component({
   selector: 'app-pelicula',
   templateUrl: './pelicula.component.html',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeliculaComponent implements OnInit {
 
-  constructor() { }
+  idPelicula: string = '';
+  pelicula: any = [];
+  backgroundImage: string = '';
+  poster: string = '';
+  creditos: any = [];
+  constructor( private route: ActivatedRoute, private peliculasService: PeliculasServiceService) { 
+       this.route.params.subscribe((data: any) => {
+         this.idPelicula = data.id;
+       });
+       this.peliculasService
+         .getMovie(this.idPelicula)
+         .subscribe((data: any) => {
+           this.pelicula = data;
+           this.backgroundImage = 
+           'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces' + 
+            this.pelicula.backdrop_path;
+           this.poster =
+             'https://image.tmdb.org/t/p/w220_and_h330_face' +
+             this.pelicula.poster_path;
+         });
+         this.peliculasService.getCredits(this.idPelicula).subscribe((data: any) => {
+            this.creditos = data;
+         });
+        }
 
   ngOnInit(): void {
+   
   }
-
 }

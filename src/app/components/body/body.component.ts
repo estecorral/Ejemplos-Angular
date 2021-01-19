@@ -10,10 +10,15 @@ import { SeriesService } from "../../services/series.service";
 })
 export class BodyComponent implements OnInit {
   popular: any = [];
+  popularSeries: any = [];
+
   constructor(private router: Router, private peliculasService: PeliculasServiceService,
     private seriesService: SeriesService) {
       this.peliculasService.getPopular().subscribe((data: any) => {
-        this.popular = data.results.slice(0, 5);
+        this.popular = data;
+      });
+      this.seriesService.getPopular().subscribe((data: any) => {
+        this.popularSeries = data.results.slice(0, 5);
       });
   }
 
@@ -29,6 +34,6 @@ export class BodyComponent implements OnInit {
   }
 
   getSeries() {
-    return this.seriesService.getFiveSeries();
+    return this.popularSeries;
   }
 }

@@ -12,8 +12,7 @@ export class PeliculasComponent implements OnInit {
   columnas: number = 2;
   constructor(private peliculasService: PeliculasServiceService) {
     this.peliculasService.getNewMovies().subscribe((data: any) => {
-      this.moviesList = data.results;
-      console.log(data.results);
+      this.moviesList = data;
     });
   }
 

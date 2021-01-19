@@ -1,0 +1,46 @@
+.body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.informacion {
+    margin: 10px;
+    color: white;
+    margin-right: 15vw;
+}
+
+.image {
+    margin: 10px;
+    border-radius: 10px;
+    margin-left: 15vw;
+}
+
+.creditos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 5px;
+    max-width: 138px;
+}
+
+mat-card {
+    object-fit: cover;
+    width: 100%;
+    max-width: 138px;
+}
