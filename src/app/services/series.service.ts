@@ -21,4 +21,14 @@ export class SeriesService {
     const url = `${this.apiURL}/latest?api_key=${this.apiKey}&language=${this.language}&page=1`;
     return this.httpClient.get(url);
   }
+
+  getSerie(id: string) {
+     const url = `${this.apiURL}/${id}?api_key=${this.apiKey}&language=${this.language}&page=1`;
+     return this.httpClient.get(url);
+  }
+
+  getSeasons(id: string, season: number) {
+     const url = `${this.apiURL}/${id}/season/${season}?api_key=${this.apiKey}&language=${this.language}&page=1`;
+     return this.httpClient.get(url);
+  }
 }

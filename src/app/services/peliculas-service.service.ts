@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient }  from '@angular/common/http';
-import { map } from "rxjs/operators";
+import { catchError, map } from "rxjs/operators";
 @Injectable({
   providedIn: 'root',
 })
@@ -19,11 +19,17 @@ export class PeliculasServiceService {
   }));
   }
 
-  getNewMovies() {
-    const url = `${this.apiURL}/upcoming?api_key=${this.apiKey}&language=${this.language}&page=1`;
+  getNewMovies(page?: number) {
+    let url = '';
+    if (page) {
+      url = `${this.apiURL}/upcoming?api_key=${this.apiKey}&language=${this.language}&page=${page}`;
+    } else {
+      url = `${this.apiURL}/upcoming?api_key=${this.apiKey}&language=${this.language}&page=1`;
+    }
     return this.httpClient.get(url).pipe(
       map((data: any) => {
-        return data.results;
+        console.log(data);
+        return data;
       })
     );
   }

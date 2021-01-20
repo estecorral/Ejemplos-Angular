@@ -1,0 +1,44 @@
+.body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.informacion {
+    margin: 10px;
+    color: white;
+    margin-right: 15vw;
+}
+
+.image {
+    margin: 10px;
+    border-radius: 10px;
+    margin-left: 15vw;
+}
+
+.imageTemporada {
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 15vw;
+}
+
+.temporadas {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+
+.episodios {
+    margin-right: 15vw;
+    margin-left: 10px;
+}
+
+.cabecera {
+    margin: 10px;
+}

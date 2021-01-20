@@ -1,18 +1,20 @@
-<div>
-    <mat-grid-list [cols]="columnas" rowHeight="1:1" (window:resize)="onResize($event)">
-        <mat-grid-tile *ngFor="let movie of moviesList">
-            <div class="gridTile">
-                <div><img src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}"></div>
-                <div [ngClass]="{
-                    'fondo-adultos': movie.adult === true,
-                    'fondo-todosPublicos': movie.adult === false
-                }">
-                    {{ movie.title }}
-                </div>
-            </div>
-        </mat-grid-tile>
-    </mat-grid-list>
-    <div *ngIf="moviesList.length < 1">
-        No hay peliculas
+<div class="content">
+    <div class="cards">
+        <mat-card class="card" *ngFor="let movie of moviesList">
+            <img mat-card-image *ngIf="movie.poster_path !== null" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{movie.poster_path}}">
+            <img mat-card-image *ngIf="movie.poster_path === null" src="../../../assets/images/peliculaSin.fw.png">
+            <mat-card-content>
+                <p>
+                    <b>{{ movie.title }}</b>
+                </p>
+                <p> {{movie.release_date}}</p>
+            </mat-card-content>
+        </mat-card>
+        <div *ngIf="moviesList.length < 1">
+            No hay peliculas
+        </div>
+    </div>
+    <div class="buttonMas" *ngIf="moviesList.length > 1 && page < pages" (click)="getMasPeliculas()">
+            <button mat-raised-button color="primary">Ver más películas</button>
     </div>
 </div>

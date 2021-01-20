@@ -12,7 +12,7 @@
 }
 
 .series {
-     display: flex;
+    display: flex;
     justify-content: center;
     flex-direction: row;
 }
@@ -22,4 +22,8 @@
 
 .serie {
     margin-bottom: 10px;
+}
+
+.imagen {
+    border-radius: 10px;
 }

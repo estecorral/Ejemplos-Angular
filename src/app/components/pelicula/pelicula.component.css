@@ -23,6 +23,7 @@
 
 .creditos {
     display: flex;
+    background-color: whitesmoke;
     justify-content: center;
     flex-direction: column;
     margin: 20px;

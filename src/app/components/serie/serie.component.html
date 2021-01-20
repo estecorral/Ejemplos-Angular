@@ -1,1 +1,52 @@
-<p>serie works!</p>
+<div class="body">
+    <div class="info" [ngStyle]="{'background-image': 'url('+backgroundImage+')', 'backgroud-size': 'cover'}">
+        <div class="imagen">
+            <img class="image" src="{{ poster }}">
+        </div>
+        <div class="informacion">
+            <div class="titulo">
+                <h1>{{ serieTV.name }} ({{ serieTV.first_air_date | date: "YYYY"}})</h1>
+                <p> {{ serieTV.first_air_date | date: "dd/MM/YYYY"}} · Temporadas {{ serieTV.number_of_seasons }}
+                    <mat-chip-list>
+                        <mat-chip color="accent" *ngFor="let genero of serieTV.genres" selected>
+                            {{genero.name}}
+                        </mat-chip>
+                    </mat-chip-list>
+                </p>
+            </div>
+            <div class="descripcion">
+                <p> {{ serieTV.overview}}</p>
+            </div>
+            <div class="puntuacion">
+                Puntuación del público:
+                <mat-chip color="primary" selected>
+                         {{serieTV.vote_average}}
+                </mat-chip>
+            </div>
+        </div>
+    </div>
+    <div class="temporadas">
+        <div class="cabecera">
+            <h1>Ultima temporada</h1>
+        </div>
+        <div class="info">
+            <div class="imagen">
+                <img class="imageTemporada" src="{{ posterTemporada }}">
+            </div>
+            <div class="imformacion">
+                <h2>{{ seasonData.name }} ({{ seasonData.air_date | date: "YYYY"}})</h2>
+                <p>{{ seasonData.air_date | date: "dd/MM/YYYY"}}</p>
+                <p><b>Episodios:</b></p>
+                <div class="episodios" *ngFor="let episodio of seasonData.episodes">
+                    <b>{{ episodio.name }}</b> · {{ episodio.air_date | date: "dd/MM/YYYY" }} ·
+                    <b>Puntuación público: </b> 
+                    <mat-chip color="primary" selected>
+                         {{episodio.vote_average}}
+                    </mat-chip>
+                    <p>{{ episodio.overview }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

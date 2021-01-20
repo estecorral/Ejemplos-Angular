@@ -22,16 +22,21 @@ export class PeliculaComponent implements OnInit {
          .getMovie(this.idPelicula)
          .subscribe((data: any) => {
            this.pelicula = data;
-           this.backgroundImage = 
-           'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces' + 
-            this.pelicula.backdrop_path;
+           this.backgroundImage =
+             'https://image.tmdb.org/t/p/w1920_and_h800_multi_faces' +
+             this.pelicula.backdrop_path;
            this.poster =
              'https://image.tmdb.org/t/p/w220_and_h330_face' +
              this.pelicula.poster_path;
-         });
+         }),
+         (error: any) => {
+           console.log(error);
+         };
          this.peliculasService.getCredits(this.idPelicula).subscribe((data: any) => {
             this.creditos = data;
-         });
+         }), (error: any) => {
+           console.log(error);
+         };
         }
 
   ngOnInit(): void {

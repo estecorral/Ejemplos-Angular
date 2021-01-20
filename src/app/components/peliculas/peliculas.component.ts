@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatChip } from '@angular/material/chips';
 import { PeliculasServiceService } from '../../services/peliculas-service.service';
-import movies from 'src/assets/movies.json';
 
 @Component({
   selector: 'app-peliculas',
@@ -9,26 +9,26 @@ import movies from 'src/assets/movies.json';
 })
 export class PeliculasComponent implements OnInit {
   moviesList: any = [];
-  columnas: number = 2;
+  page: number = 0;
+  pages: number = 0;
+
   constructor(private peliculasService: PeliculasServiceService) {
     this.peliculasService.getNewMovies().subscribe((data: any) => {
-      this.moviesList = data;
+      this.moviesList = data.results;
+      this.pages = data.total_pages;
+      this.page = data.page;
     });
   }
 
   ngOnInit(): void {
-    this.columnas = window.innerWidth <= 1400 ? 3 : 4;
+   
   }
 
-  onResize(e: any) {
-    if (e.target.innerWidth <= 1400 && e.target.innerWidth > 1100) {
-      this.columnas = 3;
-    } else if (e.target.innerWidth <= 1100 && e.target.innerWidth > 750) {
-      this.columnas = 2;
-    } else if (e.target.innerWidth <= 750) {
-      this.columnas = 1;
-    } else {
-      this.columnas = 4;
-    }
+  getMasPeliculas() {
+    this.peliculasService.getNewMovies(this.page = this.page + 1).subscribe((data: any) => {
+      this.moviesList = this.moviesList.concat(data.results);
+      this.page = data.page;
+      console.log(this.moviesList);
+    });
   }
 }
