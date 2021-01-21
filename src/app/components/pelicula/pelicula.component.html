@@ -24,6 +24,18 @@
                          {{pelicula.vote_average}}
                 </mat-chip>
             </div>
+            <div class="estrellas" >
+                <i class="material-icons" *ngIf="points === 0" (click)="getPoints(2)">star_outline</i>
+                <i class="material-icons" *ngIf="points > 0" (click)="getPoints(2)">star</i>
+                <i class="material-icons" *ngIf="points === 0 || points <= 2"(click)="getPoints(4)">star_outline</i>
+                <i class="material-icons" *ngIf="points > 2" (click)="getPoints(4)">star</i>
+                <i class="material-icons" *ngIf="points === 0 || points <= 4"(click)="getPoints(6)">star_outline</i>
+                <i class="material-icons" *ngIf="points > 4"(click)="getPoints(6)">star</i>
+                <i class="material-icons" *ngIf="points === 0 || points <= 6"(click)="getPoints(8)">star_outline</i>
+                <i class="material-icons" *ngIf="points > 6"(click)="getPoints(8)">star</i>
+                <i class="material-icons" *ngIf="points === 0 || points <= 8"(click)="getPoints(10)">star_outline</i>
+                <i class="material-icons" *ngIf="points > 8"(click)="getPoints(10)">star</i>
+            </div>
         </div>
     </div>
     <div class="creditos">

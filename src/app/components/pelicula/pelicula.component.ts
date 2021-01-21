@@ -15,6 +15,7 @@ export class PeliculaComponent implements OnInit {
   poster: string = '';
   creditos: any = [];
   loading: boolean = true;
+  points: number = 0;
 
   constructor( private route: ActivatedRoute, private peliculasService: PeliculasServiceService) { 
        this.route.params.subscribe((data: any) => {
@@ -44,5 +45,9 @@ export class PeliculaComponent implements OnInit {
 
   ngOnInit(): void {
    
+  }
+
+  getPoints(points: number) {
+    this.points = points;
   }
 }
