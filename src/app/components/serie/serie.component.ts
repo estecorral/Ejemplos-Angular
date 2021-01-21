@@ -15,6 +15,7 @@ export class SerieComponent implements OnInit {
   poster: string = '';
   seasonData: any = {};
   posterTemporada: string = '';
+  loading: boolean = true;
 
   constructor(private route: ActivatedRoute, private seriesService: SeriesService) {
     this.route.queryParams.subscribe((params) => {
@@ -33,7 +34,7 @@ export class SerieComponent implements OnInit {
           this.seasonData = data;
           this.posterTemporada =
             'https://image.tmdb.org/t/p/w220_and_h330_face' + this.seasonData.poster_path;
-          console.log(this.seasonData);
+          this.loading = false;
         });
     });
    }

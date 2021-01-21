@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatChip } from '@angular/material/chips';
 import { PeliculasServiceService } from '../../services/peliculas-service.service';
 
 @Component({
@@ -11,12 +10,14 @@ export class PeliculasComponent implements OnInit {
   moviesList: any = [];
   page: number = 0;
   pages: number = 0;
+  loading: boolean = true;
 
   constructor(private peliculasService: PeliculasServiceService) {
     this.peliculasService.getNewMovies().subscribe((data: any) => {
       this.moviesList = data.results;
       this.pages = data.total_pages;
       this.page = data.page;
+      this.loading = false;
     });
   }
 

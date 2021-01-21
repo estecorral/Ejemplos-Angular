@@ -1,15 +1,19 @@
+<app-loading *ngIf="loading"></app-loading>
+
 <div class="content">
     <div class="cards">
-        <mat-card class="card" *ngFor="let serie of seriesList">
-            <img mat-card-image *ngIf="serie.poster_path !== null" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{serie.poster_path}}">
-            <img mat-card-image *ngIf="serie.poster_path === null" src="../../../assets/images/peliculaSin.fw.png">
-            <mat-card-content>
-                <p>
-                    <b>{{ serie.name }}</b>
-                </p>
-                <p> {{ serie.first_air_date | date: "dd/MM/YYYY" }}</p>
-            </mat-card-content>
-        </mat-card>
+        <button mat-button routerLink="/serie" *ngFor="let serie of seriesList" (click)="sendParams(serie.id)">
+            <mat-card class="card">
+                <img mat-card-image *ngIf="serie.poster_path !== null" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{serie.poster_path}}">
+                <img mat-card-image *ngIf="serie.poster_path === null" src="../../../assets/images/peliculaSin.fw.png">
+                <mat-card-content>
+                    <p>
+                        <b>{{ serie.name }}</b>
+                    </p>
+                    <p> {{ serie.first_air_date | date: "dd/MM/YYYY" }}</p>
+                </mat-card-content>
+            </mat-card>
+        </button>
         <div *ngIf="seriesList.length < 1">
             No hay series
         </div>

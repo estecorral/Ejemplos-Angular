@@ -14,6 +14,8 @@ export class PeliculaComponent implements OnInit {
   backgroundImage: string = '';
   poster: string = '';
   creditos: any = [];
+  loading: boolean = true;
+
   constructor( private route: ActivatedRoute, private peliculasService: PeliculasServiceService) { 
        this.route.params.subscribe((data: any) => {
          this.idPelicula = data.id;
@@ -33,7 +35,8 @@ export class PeliculaComponent implements OnInit {
            console.log(error);
          };
          this.peliculasService.getCredits(this.idPelicula).subscribe((data: any) => {
-            this.creditos = data;
+            this.creditos = data.slice(0, 5);
+            this.loading = false;
          }), (error: any) => {
            console.log(error);
          };

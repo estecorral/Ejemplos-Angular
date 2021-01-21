@@ -21,6 +21,7 @@ import { SerieComponent } from './components/serie/serie.component';
 // Services
 import { PeliculasServiceService } from "./services/peliculas-service.service";
 import { SeriesService } from "./services/series.service";
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SeriesService } from "./services/series.service";
     PeliculasComponent,
     PeliculaComponent,
     SerieComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
