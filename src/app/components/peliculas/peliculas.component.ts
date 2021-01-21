@@ -25,10 +25,9 @@ export class PeliculasComponent implements OnInit {
   }
 
   getMasPeliculas() {
-    this.peliculasService.getNewMovies(this.page = this.page + 1).subscribe((data: any) => {
+    this.peliculasService.getNewMovies(this.page + 1).subscribe((data: any) => {
       this.moviesList = this.moviesList.concat(data.results);
       this.page = data.page;
-      console.log(this.moviesList);
     });
   }
 }

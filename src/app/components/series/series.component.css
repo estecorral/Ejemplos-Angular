@@ -1,0 +1,35 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo-adultos {
+    background-color: red;
+}
+
+.fondo-todosPublicos {
+    background-color: green;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 20px;
+}
+
+mat-card {
+    object-fit: cover;
+    width: 100%;
+    max-width: 138px;
+    margin: 5px;
+}
+
+.buttonMas {
+    margin: 20px;
+}

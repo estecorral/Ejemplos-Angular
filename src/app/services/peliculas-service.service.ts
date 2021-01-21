@@ -28,7 +28,6 @@ export class PeliculasServiceService {
     }
     return this.httpClient.get(url).pipe(
       map((data: any) => {
-        console.log(data);
         return data;
       })
     );

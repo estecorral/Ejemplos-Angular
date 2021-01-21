@@ -12,8 +12,14 @@ export class SeriesService {
   private language = 'es-ES';
   constructor(private httpClient: HttpClient) {}
 
-  getPopular() {
-    const url = `${this.apiURL}/popular?api_key=${this.apiKey}&language=${this.language}&page=1`;
+  getPopular(page?: number) {
+    let url = '';
+    if(page) {
+      url = `${this.apiURL}/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`;
+    } else {
+      url = `${this.apiURL}/popular?api_key=${this.apiKey}&language=${this.language}&page=1`;
+    }
+
     return this.httpClient.get(url);
   }
 

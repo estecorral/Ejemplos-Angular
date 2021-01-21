@@ -1,1 +1,20 @@
-<p>series works!</p>
+<div class="content">
+    <div class="cards">
+        <mat-card class="card" *ngFor="let serie of seriesList">
+            <img mat-card-image *ngIf="serie.poster_path !== null" src="https://image.tmdb.org/t/p/w220_and_h330_face/{{serie.poster_path}}">
+            <img mat-card-image *ngIf="serie.poster_path === null" src="../../../assets/images/peliculaSin.fw.png">
+            <mat-card-content>
+                <p>
+                    <b>{{ serie.name }}</b>
+                </p>
+                <p> {{ serie.first_air_date | date: "dd/MM/YYYY" }}</p>
+            </mat-card-content>
+        </mat-card>
+        <div *ngIf="seriesList.length < 1">
+            No hay series
+        </div>
+    </div>
+    <div class="buttonMas" *ngIf="seriesList.length > 1 && page < pages" (click)="getMasSeries()">
+            <button mat-raised-button color="primary">Ver más películas</button>
+    </div>
+</div>
