@@ -49,5 +49,8 @@ export class PeliculaComponent implements OnInit {
 
   getPoints(points: number) {
     this.points = points;
+    this.peliculasService.setRating(this.idPelicula, this.points).subscribe((data: any) => {
+      console.log(data);
+    });
   }
 }

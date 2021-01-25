@@ -22,7 +22,8 @@ import { SerieComponent } from './components/serie/serie.component';
 import { PeliculasServiceService } from "./services/peliculas-service.service";
 import { SeriesService } from "./services/series.service";
 import { LoadingComponent } from './components/loading/loading.component';
-
+import { LoginPlantillaComponent } from './components/login-plantilla/login-plantilla.component';
+import { FormsModule } from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,13 +35,15 @@ import { LoadingComponent } from './components/loading/loading.component';
     PeliculaComponent,
     SerieComponent,
     LoadingComponent,
+    LoginPlantillaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ 
     PeliculasServiceService,

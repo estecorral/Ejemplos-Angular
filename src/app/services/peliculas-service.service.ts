@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient }  from '@angular/common/http';
+import { HttpClient, HttpHeaders }  from '@angular/common/http';
 import { catchError, map } from "rxjs/operators";
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -45,5 +46,18 @@ export class PeliculasServiceService {
         return data.cast;
       })
     );
+  }
+
+  setRating(id: string, rating: number) {
+    let value = {
+      value: rating,
+    };
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'api_key': this.apiKey
+      })
+    }
+    const url = `${this.apiURL}/${id}/rating?api_key=${this.apiKey}`;
+    return this.httpClient.post(url, value, httpOptions);
   }
 }

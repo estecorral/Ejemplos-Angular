@@ -5,13 +5,15 @@ import { SeriesComponent } from './components/series/series.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { PeliculaComponent } from "./components/pelicula/pelicula.component";
 import { SerieComponent } from "./components/serie/serie.component";
+import { LoginPlantillaComponent } from "./components/login-plantilla/login-plantilla.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'popularMovies', component: PeliculasComponent },
-  { path: 'popularSeries', component: SeriesComponent},
-  { path: 'pelicula/:id', component: PeliculaComponent},
+  { path: 'popularSeries', component: SeriesComponent },
+  { path: 'pelicula/:id', component: PeliculaComponent },
   { path: 'serie', component: SerieComponent },
+  { path: 'login', component: LoginPlantillaComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
