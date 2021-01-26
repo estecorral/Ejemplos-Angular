@@ -1,8 +1,10 @@
-.form-group {
-    display: flex;
+
+
+.form {
+   display: flex;
     justify-content: center;
     flex-direction: column;
     margin-top: 20px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 35%;
+    margin-right: 35%; 
 }

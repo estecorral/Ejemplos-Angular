@@ -18,6 +18,12 @@ export class LoginPlantillaComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value, this.login.email);
+    if(form.invalid) {
+      Object.values(form.controls).forEach( control => {
+        control.markAsTouched();
+      });
+      return;
+    }
+    console.log(form);
   }
 }

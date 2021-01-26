@@ -1,24 +1,30 @@
 <div class="form-group">
-    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" class="form">
         <mat-form-field class="email">
             <mat-label>email</mat-label>
             <input matInput 
-            type="text" name="email" 
+            type="email" 
+            name="email" 
+            [class.is-invalid] = "email.invalid && email.touched"
             [(ngModel)]="login.email" 
             placeholder="email"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+            #email="ngModel"
             required>
         </mat-form-field>
+        <small *ngIf="email.invalid && email.touched" [ngStyle]="{ 'color': 'red' }">Formato de email erroneo</small>
 
         <mat-form-field class="password">
             <mat-label>Password</mat-label>
             <input matInput 
             type="password" name="password" 
+            [class.is-invalid] = "password.invalid && password.touched"
             [(ngModel)]="login.password" 
             placeholder="password"
+            #password="ngModel"
             required>
         </mat-form-field>
-
+        <small *ngIf="password.invalid && password.touched" [ngStyle]="{ 'color': 'red' }">El password es obligatorio</small>
         <button mat-raised-button color="primary" type="submit">Login</button>
     </form>
 </div>
