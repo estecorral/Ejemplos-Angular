@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validator } from "@angular/forms";
+import { Router } from '@angular/router';
+import { UsuarioModel } from 'src/app/models/usuario.model';
+import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-login-plantilla',
   templateUrl: './login-plantilla.component.html',
@@ -7,12 +11,9 @@ import { FormControl, FormGroup, NgForm, Validator } from "@angular/forms";
 })
 export class LoginPlantillaComponent implements OnInit {
 
-  login = {
-    email: '',
-    password: ''
-  }
+  usuario: UsuarioModel = new UsuarioModel();
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,11 @@ export class LoginPlantillaComponent implements OnInit {
       });
       return;
     }
-    console.log(form);
+    this.authService.login(this.usuario).subscribe(res => {
+      console.log(res);
+      this.router.navigateByUrl('/home');
+    }, (error) => {
+      console.log(error);
+    });
   }
 }
