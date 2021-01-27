@@ -23,7 +23,9 @@ import { PeliculasServiceService } from "./services/peliculas-service.service";
 import { SeriesService } from "./services/series.service";
 import { LoadingComponent } from './components/loading/loading.component';
 import { LoginPlantillaComponent } from './components/login-plantilla/login-plantilla.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { LoginReactivoComponent } from './components/login-reactivo/login-reactivo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,7 @@ import { FormsModule } from "@angular/forms";
     SerieComponent,
     LoadingComponent,
     LoginPlantillaComponent,
+    LoginReactivoComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { FormsModule } from "@angular/forms";
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ 
     PeliculasServiceService,

@@ -1,0 +1,23 @@
+<div class="form-group">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <mat-form-field class="username">
+            <mat-label>Usuario</mat-label>
+            <input matInput 
+            type="text" 
+            placeholder="username"
+            formControlName="username"
+            [class.is-invalid]="usernameInvalid">
+        </mat-form-field>
+        <small *ngIf="usernameInvalid" [ngStyle]="{ 'color': 'red' }">El nombre de usuario es obligatorio</small>
+        <mat-form-field class="password">
+            <mat-label>Password</mat-label>
+            <input matInput 
+            type="password" 
+            placeholder="password" 
+            formControlName="password"
+            [class.is-invalid]="passwordInvalid">
+        </mat-form-field>
+        <small *ngIf="passwordInvalid" [ngStyle]="{ 'color': 'red' }">El password tiene que tener más de 4 letras</small>
+        <button mat-raised-button color="primary" type="submit">Login</button>
+    </form>
+</div>
